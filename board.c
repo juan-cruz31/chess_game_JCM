@@ -20,9 +20,6 @@ void clear_board(ChessBoard *board){
 
 
 
-
-
-
 void load_start_position(ChessBoard *board){
 
     clear_board(board);
@@ -48,7 +45,7 @@ void load_start_position(ChessBoard *board){
     board->cells[7][7] = B_ROOK;
 
 
-    for(int i = 0; column < BOARD_SIZE; column++){
+    for(int column = 0; column < BOARD_SIZE; column++){
         board->cells[1][column] = W_PAWN;
         board->cells[6][column] = B_PAWN;
     }
