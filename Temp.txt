@@ -6,3 +6,5 @@ board.c / board.h: Manages only the board state (where each piece is located).
 rules.c / rules.h: Validates if a move is legal, calculates checks, castling, and en passant captures.
 
 game.c / game.h: Controls the game flow (whose turn it is, whether there is a checkmate or a draw).
+
+tui.c / tui.h : Terminal User Interface (drawing the board to the screen, displaying messages, etc.).
