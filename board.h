@@ -9,9 +9,10 @@
 
 typedef enum = {
     EMPTY = 0,
-    W_PAWN, W_KNIGHT, W_BISHOP, W_ROOK, W_QUEEN, W_KING,
-    B_PAWN, B_KNIGHT, B_BISHOP, B_ROOK, B_QUEEN, B_KING
+    W__PAWN, W_KNGHT, W_BISHP, W__ROOK, W_QUEEN, W__KING,
+    B__PAWN, B_KNGHT, B_BISHP, B__ROOK, B_QUEEN, B__KING
 } Piece;
+
 
 
 
