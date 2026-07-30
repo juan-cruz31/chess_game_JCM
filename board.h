@@ -2,6 +2,7 @@
 #define BOARD_H
 
 #include <stdbool.h>
+#include <stdio.h>
 
 #define BOARD_SIZE 8
 
@@ -16,25 +17,20 @@ typedef enum = {
 
 
 
-typedef struct {
-    Piece cells[BOARD_SIZE][BOARD_SIZE];
-    int w_b_turn;
-
-    bool white_can_castle_kingside;
-    bool white_can_castle_queenside;
-
-    bool black_can_castle_kingside;
-    bool black_can_castle_queenside;
-
-    //other rules
-} ChessBoard;
+typedef struct chessboard * board;
 
 
 
 
-void clear_board(ChessBoard *board);
+void clear_board(board b);
 
-void load_start_position(ChessBoard *board);
+void load_start_position(board b);
+
+int square_w_b(board b, int row, int column);
+
+board chess_notation(board b, ); // INCOMPLETE
+
+void move_piece(board b ,int row, int column); // INCOMPLETE
 
 #endif
 
