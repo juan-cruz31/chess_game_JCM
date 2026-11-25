@@ -8,7 +8,7 @@
 
 
 
-typedef enum = {
+typedef enum {
     EMPTY = 0,
     W__PAWN, W_KNGHT, W_BISHP, W__ROOK, W_QUEEN, W__KING,
     B__PAWN, B_KNGHT, B_BISHP, B__ROOK, B_QUEEN, B__KING
@@ -26,11 +26,9 @@ void clear_board(board b);
 
 void load_start_position(board b);
 
-int square_w_b(board b, int row, int column);
+int square_w_b(int row, int column);
 
-board chess_notation(board b, ); // INCOMPLETE
-
-void move_piece(board b ,int row, int column); // INCOMPLETE
+void move_piece(board b); // INCOMPLETE
 
 #endif
 

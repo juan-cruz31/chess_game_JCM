@@ -15,7 +15,7 @@ struct chessboard {
 };
 
 
-enum Col = { a, b, c, d, e, f, g, h };
+typedef enum { a, b, c, d, e, f, g, h } Column;
 
 
 
@@ -77,7 +77,7 @@ void load_start_position(board b){
 }
 
 
-int square_w_b(board b, int row, int column){
+int square_w_b(int row, int column){
     int color;    // WHITE = 0  BLACK = 1
 
     if((row % 2 == 0 && column % 2 == 0) || (row % 2 == 1 && column % 2 == 1)){
@@ -89,27 +89,87 @@ int square_w_b(board b, int row, int column){
     return color;
 }
 
+
+/////////////////////  VERIFY   ////////
+
+
+Column char_to_Column(char input){
+    Column output;
+
+    // ASCII a = 97
+
+    output = input - 'a';
+
+    return output;
+}
+
+void move_piece(board b){
+    char piece;
+    char column_;
+    Column column_C;    // C = (Column)
+    int row_;
+    char hyphen;
+    char column_2;
+    Column column_2C;   // C = (Column)
+    int row_2;
+    bool legal;
+    Piece temp_piece;
+
+    printf("Enter the piece to be moved:");
+
+    scanf("%c%c%d%c%c%d", &piece, &column_, &row_, &hyphen, &column_2, &row_2);
+
+    if(
+        (piece != 'R' && piece != 'N' && piece != 'B' && piece != 'Q' && piece != 'K' && piece != 'P')
+
+        ||
+
+        (column_ != 'a' && column_ != 'b' && column_ != 'c' && column_ != 'd' && column_ != 'e' && column_ != 'f' && column_ != 'g' && column_ != 'h')
+
+        ||
+
+        (row_ < 1 || row_ > 8)
+
+        ||
+
+        (hyphen != '-')
+
+        ||
+
+        (column_2 != 'a' && column_2 != 'b' && column_2 != 'c' && column_2 != 'd' && column_2 != 'e' && column_2 != 'f' && column_2 != 'g' && column_2 != 'h')
+
+        ||
+
+        (row_2 < 1 || row_2 > 8)
+
+        ){
+        legal = false;
+    } else{
+        legal = true;
+    }
+
+
+    if(legal){
+        // COMPLETE AND VERIFY THE FOLLOWING CODE
+        column_C = char_to_Column(column_);     // Convert the char type to the Column type.
+        column_2C = char_to_Column(column_2);   // Convert the char type to the Column type.
+
+        temp_piece = b->cells[row_][column_C];
+        b->cells[row_][column_C] = EMPTY;
+        b->cells[row_2][column_2C] = temp_piece;
+
+
+    } else{
+        printf("The move is not legal. Please enter a valid move.\n");
+    }
+
+
+}
+
+
+
+
 /*
-board (board p, int row, int column){
-
-    board q;
-    q = malloc(sizeof(struct chessboard));
-
-
-    q->cells[row][column] = p -> snd;
-    q->snd = p -> fst;
-
-    return q;
-}
-
-void var_destroy(board p){
-
-    free(p);
-    p = NULL;
-}
-*/
-
-
 
 void move_piece(board b, int row, int column){
 
@@ -121,12 +181,9 @@ void move_piece(board b, int row, int column){
 
     color = square_w_b(b, row, column);
 
-
-
-
 }
 
-
+*/
 
 
 
